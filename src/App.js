@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import headshot from './logo.svg';
 import './css/App.css';
 import './css/header.css';
+import Projects from './components/Projects';
+import Resume from './components/Resume';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -22,7 +26,11 @@ function App() {
         </div>
       </div>
       <header className="App-header">
-
+        <Router>
+          <Route exact path="/" component={Projects} />
+          <Route path="/resume" component={Resume} />
+          <Route path="/contact" component={Contact} />
+        </Router>
       </header>
     </div>
   );
