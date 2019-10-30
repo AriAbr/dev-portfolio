@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
 
 
 class Projects extends Component {
@@ -12,8 +13,11 @@ class Projects extends Component {
   render() {
 
     return (
-      <div id="contact-div" className="secondary-display">
-        <p id="contact-placeholder">CONTACT WILL GO HERE</p>
+      <div id="contact-div" className="main-display">
+        <NavBar currPage='contact' />
+        <div className="main-display-content">
+          <p id="contact-placeholder">CONTACT WILL GO HERE</p>
+        </div>
       </div>
     );
   }

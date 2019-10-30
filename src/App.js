@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import headshot from './logo.svg';
 import './css/App.css';
 import './css/header.css';
+import './css/main-display.css';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';

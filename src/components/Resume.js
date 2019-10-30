@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
 
 
 class Projects extends Component {
@@ -10,10 +11,12 @@ class Projects extends Component {
   }
 
   render() {
-
     return (
-      <div id="resume-div" className="secondary-display">
-        <p id="resume-placeholder">RESUME WILL GO HERE</p>
+      <div id="resume-div" className="main-display">
+        <NavBar currPage='resume' />
+        <div className="main-display-content">
+          <p id="resume-placeholder">RESUME WILL GO HERE</p>
+        </div>
       </div>
     );
   }
