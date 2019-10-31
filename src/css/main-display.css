@@ -1,7 +1,8 @@
 .main-display{
-  margin-top: 341px;
+  margin-top: 315px;
   width: 100%;
   height: 1000px;
+  position: relative;
 }
 
 .main-display-content{
@@ -10,10 +11,10 @@
 
 #navbar-div{
   position: absolute;
-  left: 470px;
   width: calc(100% - 500px);
   white-space: nowrap;
   font-size: 25px;
+  z-index: 1;
 }
 
 .navbar-link{

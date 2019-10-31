@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
-
 
 class Projects extends Component {
   constructor(props) {
@@ -14,7 +12,6 @@ class Projects extends Component {
 
     return (
       <div id="projects-div" className="main-display">
-        <NavBar currPage='projects' />
         <div className="main-display-content">
           <p id="projects-placeholder">PROJECTS WILL GO HERE</p>
         </div>

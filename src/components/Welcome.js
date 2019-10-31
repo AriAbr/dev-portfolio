@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from './NavBar';
 
 class Welcome extends Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class Welcome extends Component {
   }
 
   componentDidMount(){
-    console.log('welcome mounted')
     document.addEventListener("scroll", (e) => {
       console.log(window.pageYOffset);
       var vertScrollPosition = window.pageYOffset;
@@ -18,22 +18,11 @@ class Welcome extends Component {
         vertScrollPosition = 236;
       }
       this.setState({ scrollPosition: vertScrollPosition })
-      // if(!this.state.isCondensed){
-      //   if(vertScrollPosition > 70){
-      //     this.setState({ isCondensed: true })
-      //   }
-      // }
-      // if (vertScrollPosition > 70 && !this.state.isCondensed) {
-      //   this.setState({ isCondensed: true })
-      // } else if (vertScrollPosition <=70 && this.state.isCondensed) {
-      //   this.setState({ isCondensed: false })
-      // }
     })
   }
 
 
   render() {
-    console.log(70 - this.state.scrollPosition)
     var welcomeMessageMarginTop = 54 - this.state.scrollPosition;
     if(welcomeMessageMarginTop < 0){
       welcomeMessageMarginTop = 0;
@@ -50,7 +39,7 @@ class Welcome extends Component {
     var headshotWidth = 400 - (this.state.scrollPosition*1.5)
     var welcomeContent = <></>
     if (!this.state.isCondensed) {
-      welcomeContent = <>
+      welcomeContent = <div className="welcome-navbar-parent">
           <div id="main-header" style={{height: `${welcomeMessageHeight}px`}}>
             <div id="condensed-title"
               style={{
@@ -81,26 +70,27 @@ class Welcome extends Component {
               }}
             >
               <div id="main-header-welcome">
-                Hi, I'm Ari Abramowitz.
+                Hi, I'm Ari Abramowitz
               </div>
               <div id="main-header-developer">
-                I'm a fullstack web developer.
+                I'm a fullstack web developer
               </div>
               <div id="main-header-please-scroll">
-                Scroll down to see my projects, resume, and contact info.
+                Scroll down to see my projects, resume, and contact info
               </div>
             </div>
           </div>
-        </>
+        </div>
     } else if (this.state.isCondensed) {
-      welcomeContent = <>
+      welcomeContent = <div className="welcome-navbar-parent">
           <div id="condensed-welcome-div" >CONDENSED WELCOME GOES HERE</div>
-        </>
+          <NavBar currPage='contact' top={this.state.scrollPosition}/>
+        </div>
     }
     return (
-      <div id="welcome-content">
-        {welcomeContent}
-      </div>
+        <div id="welcome-content">
+          {welcomeContent}
+        </div>
     )
 
   }
