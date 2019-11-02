@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/welcome.css';
 import './css/main-display.css';
+import './css/resume.css';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
@@ -14,11 +15,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      scrollPosition: 0,
     };
   }
 
+  componentDidMount(){
+    document.addEventListener("scroll", (e) => {
+      var vertScrollPosition = window.pageYOffset;
+      if(vertScrollPosition > 236){
+        vertScrollPosition = 236;
+      }
+      this.setState({ scrollPosition: vertScrollPosition })
+    })
+  }
+
   render() {
+    const mainMarginLeft = 470 - ((400/236)*this.state.scrollPosition);
 
     return (
       <div className="App">
@@ -26,9 +38,17 @@ class App extends Component {
           <Welcome />
           <NavBar />
           <header className="App-header">
-            <Route exact path="/" component={Projects} />
-            <Route path="/resume" component={Resume} />
-            <Route path="/contact" component={Contact} />
+            <div id="main-display-container"
+              style={{
+                marginLeft: `${mainMarginLeft}px`,
+                marginTop: `65px`,
+                width: `calc(100% - ${mainMarginLeft}px)`
+              }}
+            >
+              <Route exact path="/" component={Projects} />
+              <Route path="/resume" component={Resume} />
+              <Route path="/contact" component={Contact} />
+            </div>
           </header>
         </Router>
       </div>
