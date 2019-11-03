@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Document, Page } from 'react-pdf';
-import { Document, Page } from 'react-pdf/dist/entry.webpack';
+// import { Document, Page } from 'react-pdf/dist/entry.webpack';
 
 class Resume extends Component {
   constructor(props) {
@@ -26,13 +26,7 @@ class Resume extends Component {
         <div className="main-display-content">
           <p id="resume-placeholder"></p>
           <div id="resume-pdf-div">
-          <Document
-            file="/resume.pdf"
-            onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
-            className="resume-pdf"
-          >
-            <Page pageNumber={pageNumber} id="resume-pdf-page" width="1000"/>
-          </Document>
+
           </div>
         </div>
       </div>
@@ -41,3 +35,15 @@ class Resume extends Component {
 }
 
 export default Resume
+
+/*
+
+<Document
+  file="/resume.pdf"
+  onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
+  className="resume-pdf"
+>
+  <Page pageNumber={pageNumber} id="resume-pdf-page" width="1000"/>
+</Document>
+
+*/
