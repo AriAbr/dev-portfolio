@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 // import { Document, Page } from 'react-pdf';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 
-import resumePdf from './../resume.pdf';
-
 class Resume extends Component {
   constructor(props) {
     super(props);
@@ -26,11 +24,11 @@ class Resume extends Component {
     return (
       <div id="resume-div" className="main-display">
         <div className="main-display-content">
-          <p id="resume-placeholder"> </p>
+          <p id="resume-placeholder"></p>
           <div id="resume-pdf-div">
           <Document
-            file={resumePdf}
-            onLoadSuccess={(resumePdf) => {this.onDocumentLoadSuccess(resumePdf)}}
+            file="/resume.pdf"
+            onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
             className="resume-pdf"
           >
             <Page pageNumber={pageNumber} id="resume-pdf-page" width="1000"/>
