@@ -1,0 +1,54 @@
+#projects-title{
+    text-align: left;
+}
+
+.project-display{
+  white-space: nowrap;
+}
+
+.project-info{
+  display: inline-block;
+  padding: 30px;
+  vertical-align: bottom;
+}
+
+.project-description{
+  width: 500px;
+  white-space: normal;
+  text-align: left;
+  font-size: 22px;
+}
+
+.project-preview{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.project-links{
+  white-space: nowrap;
+}
+.project-link{
+  display: inline-block;
+  width: calc(50% - 40px);
+  transition: .25s;
+  border: 5px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.project-link:hover{
+  border: 5px solid #4040d0;
+  color: #4040d0;
+}
+
+.project-link-buffer{
+  width: 40px;
+  display: inline-block;
+}
+
+.project-break{
+  width: 1200px;
+  margin-top: 60px;
+  border: .5px solid gray;
+}

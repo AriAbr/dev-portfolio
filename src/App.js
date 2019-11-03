@@ -4,6 +4,7 @@ import './css/App.css';
 import './css/welcome.css';
 import './css/main-display.css';
 import './css/resume.css';
+import './css/projects.css';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
@@ -34,6 +35,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <Router>
           <Welcome />
           <NavBar />
