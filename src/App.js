@@ -5,6 +5,7 @@ import './css/welcome.css';
 import './css/main-display.css';
 import './css/resume.css';
 import './css/projects.css';
+import './css/contact.css';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';

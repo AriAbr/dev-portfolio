@@ -12,7 +12,6 @@ class Welcome extends Component {
 
   componentDidMount(){
     document.addEventListener("scroll", (e) => {
-      console.log(window.pageYOffset);
       var vertScrollPosition = window.pageYOffset;
       if(vertScrollPosition > 236){
         vertScrollPosition = 236;

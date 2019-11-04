@@ -19,7 +19,8 @@ class Resume extends Component {
   };
 
   render() {
-    const { pageNumber, numPages } = this.state;
+    const { pageNumber } = this.state;
+    // const numPages = this.state;
 
     return (
       <div id="resume-div" className="main-display">
@@ -31,7 +32,7 @@ class Resume extends Component {
             onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
             className="resume-pdf"
           >
-            <Page pageNumber={pageNumber} id="resume-pdf-page" width="1000"/>
+            <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000} />
           </Document>
           </div>
         </div>

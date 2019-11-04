@@ -18,9 +18,7 @@ class NavBar extends Component {
   }
 
   componentDidMount(){
-    console.log('navbar mounted')
     document.addEventListener("scroll", (e) => {
-      console.log(window.pageYOffset);
       var vertScrollPosition = window.pageYOffset;
 
       if(vertScrollPosition < 236){
@@ -52,9 +50,9 @@ class NavBar extends Component {
           width:`calc(100% - ${widthOffSet}px)`
         }}
       >
-          <Link to={`/`} activeClassName="active" className={projectsCssClass} onClick={() => {this.updateCurrPage("projects")}}>Projects</Link>
-          <Link to={`/resume`} activeClassName="active" className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
-          <Link to={`/contact`} activeClassName="active" className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
+          <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("projects")}}>Projects</Link>
+          <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
+          <Link to={`/contact`} className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
       </div>
     );
   }

@@ -21,11 +21,11 @@ class Projects extends Component {
               <p className="project-description">Spotifake description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-spotifake.herokuapp.com/" className="project-link">
-                  Spotifake  <i class="material-icons">open_in_new</i>
+                  Spotifake  <i className="material-icons">open_in_new</i>
                 </a>
                 <div className="project-link-buffer" />
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/AriAbr/Spotifake" className="project-link">
-                  GitHub  <i class="material-icons">open_in_new</i>
+                  GitHub  <i className="material-icons">open_in_new</i>
                 </a>
               </div>
             </div>
@@ -41,11 +41,11 @@ class Projects extends Component {
               <p className="project-description">Slaq description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-slaq.herokuapp.com/" className="project-link">
-                  Slaq  <i class="material-icons">open_in_new</i>
+                  Slaq  <i className="material-icons">open_in_new</i>
                 </a>
                 <div className="project-link-buffer" />
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/AriAbr/Slaq" className="project-link">
-                  GitHub  <i class="material-icons">open_in_new</i>
+                  GitHub  <i className="material-icons">open_in_new</i>
                 </a>
               </div>
             </div>
@@ -59,11 +59,11 @@ class Projects extends Component {
               <p className="project-description">Tirred description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://tirred.herokuapp.com/" className="project-link">
-                  Tirred  <i class="material-icons">open_in_new</i>
+                  Tirred  <i className="material-icons">open_in_new</i>
                 </a>
                 <div className="project-link-buffer" />
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/AriAbr/tirred" className="project-link">
-                  GitHub  <i class="material-icons">open_in_new</i>
+                  GitHub  <i className="material-icons">open_in_new</i>
                 </a>
               </div>
             </div>
