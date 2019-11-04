@@ -1,0 +1,14 @@
+.email-submit{
+  display: inline-block;
+  width: calc(50% - 40px);
+  transition: .25s;
+  border: 5px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.email-submit:hover{
+  border: 5px solid #4040d0;
+  color: #4040d0;
+}
