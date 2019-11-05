@@ -6,6 +6,7 @@ class Contact extends Component {
     super(props);
     this.state = {
       emailAddress: "",
+      isvalidEmailAddress: null,
       emailBody: "",
       senderName: "",
       emailStatus: "writing",
@@ -18,7 +19,11 @@ class Contact extends Component {
   }
 
   updateEmailAddress(e){
-    this.setState({ emailAddress: e.target.value});
+    var validator = require("email-validator");
+    this.setState({
+      emailAddress: e.target.value,
+      isvalidEmailAddress: validator.validate(e.target.value),
+    });
   }
 
   updateEmailBody(e){
@@ -27,13 +32,25 @@ class Contact extends Component {
 
   submitEmail(e){
     e.preventDefault();
-    this.setState({ emailStatus: "sending" });
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
-    this.sendFeedback(templateId, {
-      message_html: this.state.emailBody,
-      from_name: this.state.name,
-      reply_to: this.state.emailAddress
-    })
+
+    var validator = require("email-validator");
+    if(validator.validate(this.state.emailAddress)){
+      this.setState({ emailStatus: "sending" });
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
+      this.sendFeedback(templateId, {
+        message_html: this.state.emailBody,
+        from_name: this.state.name,
+        reply_to: this.state.emailAddress
+      })
+    } else {
+      this.setState({
+        emailStatus: "invalidAddress",
+        emailOverlayMessage: <>
+                              Sorry, that's not a valid email address.
+                              <button onClick={(e) => this.tryAgain(e)} className="email-refresh" style={{marginTop: "16px", width: "250px"}}>Try again</button>
+                            </>,
+      });
+    }
   }
 
   sendFeedback (templateId, variables) {
@@ -93,12 +110,18 @@ class Contact extends Component {
   }
 
   render() {
+    var emailInputClass = "";
+    if(this.state.isvalidEmailAddress === true) {
+      emailInputClass = "valid-email-input";
+    } else if (this.state.isvalidEmailAddress === false) {
+      emailInputClass = "invalid-email-input";
+    }
 
     return (
       <div id="contact-div" className="main-display">
         <div className="main-display-content">
           <LoadingOverlay
-            active={["sending", "sent", "failed"].includes(this.state.emailStatus) }
+            active={["sending", "sent", "failed", "invalidAddress"].includes(this.state.emailStatus) }
             spinner={["sending"].includes(this.state.emailStatus)}
             text={this.state.emailOverlayMessage}
             className="email-overlay"
@@ -117,13 +140,13 @@ class Contact extends Component {
               />
             </div>
             <div id="contact-email-div" className="name-email-div">
-              <label for="emailAddress" className="contact-input-label">Email</label>
+              <label for="emailAddress" className="contact-input-label">Email <small>(must be valid)</small></label>
               <input
                 type="text"
                 value={this.state.emailAddress}
                 name="emailAddress"
                 id="emailAddress"
-                className="contact-input name-email-input"
+                className={`contact-input name-email-input ${emailInputClass}`}
                 onChange={(e) => {this.updateEmailAddress(e)}}
               />
             </div>

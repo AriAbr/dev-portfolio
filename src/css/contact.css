@@ -22,6 +22,12 @@
   color: #4040d0;
 }
 
+.email-submit:focus{
+  border: 5px solid #4040d0;
+  color: #4040d0;
+  outline: 0;
+}
+
 .email-refresh{
   margin: auto;
   display: block;
@@ -41,6 +47,12 @@
   color: black;
 }
 
+.email-refresh:focus{
+  border: 5px solid black;
+  color: black;
+  outline: 0;
+}
+
 #contact-name-div{
   display: inline-block;
 }
@@ -57,6 +69,20 @@
   font-size: 20px;
   font-weight: 600;
   font-family: inherit;
+  transition: .25s;
+}
+
+.invalid-email-input{
+  border: 5px solid #ff7c7c;
+}
+
+.valid-email-input{
+  border: 5px solid #80c680;
+}
+
+.contact-input:focus{
+  /* border: 5px solid #4040d0; */
+  outline: 0;
 }
 
 .contact-input-label{
