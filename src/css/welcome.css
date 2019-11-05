@@ -22,8 +22,11 @@
 }
 
 #main-header-welcome{
-  font-weight: bold;
   font-size: 72px;
+}
+
+#welcome-name{
+  font-weight: 600;
 }
 
 #main-header-developer{

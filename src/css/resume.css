@@ -5,6 +5,10 @@
   margin: auto;
 }
 
+.react-pdf__Page__annotations.annotationLayer{
+  display: none;
+}
+
 #resume-placeholder{
   height: 10px;
 }

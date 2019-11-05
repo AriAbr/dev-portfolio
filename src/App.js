@@ -51,6 +51,7 @@ class App extends Component {
               <Route exact path="/" component={Projects} />
               <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />
+              <div className="main-display-scrolling-buffer" />
             </div>
           </header>
         </Router>

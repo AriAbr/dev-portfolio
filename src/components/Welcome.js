@@ -69,7 +69,7 @@ class Welcome extends Component {
               }}
             >
               <div id="main-header-welcome">
-                Hi, I'm Ari Abramowitz
+                Hi, I'm <span id="welcome-name">Ari Abramowitz</span>
               </div>
               <div id="main-header-developer">
                 I'm a fullstack web developer

@@ -8,12 +8,13 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 250vh;
+  min-height: 1000px;
+  height: fit-content;
   display: flex;
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .App-link {
