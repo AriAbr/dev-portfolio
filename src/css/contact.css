@@ -1,3 +1,9 @@
+#contact-form{
+  margin: auto;
+  white-space: nowrap;
+  width: 800px;
+}
+
 .email-submit{
   display: inline-block;
   width: calc(50% - 40px);
@@ -6,9 +12,94 @@
   color: white;
   text-decoration: none;
   padding: 5px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 25.264px;
 }
 
 .email-submit:hover{
   border: 5px solid #4040d0;
   color: #4040d0;
+}
+
+.email-refresh{
+  margin: auto;
+  display: block;
+  width: calc(50% - 40px);
+  transition: .25s;
+  border: 5px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 25.264px;
+}
+
+.email-refresh:hover{
+  border: 5px solid black;
+  color: black;
+}
+
+#contact-name-div{
+  display: inline-block;
+}
+
+#contact-email-div{
+  display: inline-block;
+}
+
+.contact-input{
+  border: 5px solid lightgray;
+  padding: 5px;
+  margin: 10px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.contact-input-label{
+  display: block;
+  text-align: left;
+  margin: 10px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.name-email-div{
+  width: calc(50% - 20px);
+}
+
+.name-email-input{
+  width: calc(100% - 40px);
+}
+
+#contact-message-div{
+  width: calc(100%);
+}
+
+.message-input{
+  width: calc(100% - 80px);
+}
+
+.message-input-label{
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: calc(100% - 60px);
+}
+
+.test-textarea{
+  background-color: orange;
+}
+
+.sending-overlay-buffer{
+  height: 30px;
+}
+
+.email-overlay{
+  width: 800px;
+  margin: auto;
+  z-index: 0;
 }
