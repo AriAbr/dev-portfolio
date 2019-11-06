@@ -5,8 +5,6 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollPosition: 236,
-      realScrollPosition: 0,
       currPage: "projects",
     };
   }
@@ -17,30 +15,13 @@ class NavBar extends Component {
     }
   }
 
-  componentDidMount(){
-    document.addEventListener("scroll", (e) => {
-      var vertScrollPosition = window.pageYOffset;
-
-      if(vertScrollPosition < 236){
-        vertScrollPosition = 236;
-      }
-      this.setState({ scrollPosition: vertScrollPosition, realScrollPosition: window.pageYOffset });
-    })
-  }
   render() {
-    const scrollPosition = this.state.scrollPosition
-    var top = 306 - this.state.realScrollPosition;
-    if(top < 70){
-      top = 70;
-    }
-    var left = 480 - ((400/236)*this.state.realScrollPosition);
-    if (left < 80) {
-      left = 80;
-    }
-    var widthOffSet = 500 - ((400/236)*this.state.realScrollPosition);
-    if (widthOffSet < 100) {
-      widthOffSet = 100;
-    }
+    const adjustedScrollPosition = this.props.adjustedScrollPosition;
+
+    var top = 306 - adjustedScrollPosition;
+    var left = 480 - ((400/236)*adjustedScrollPosition);
+    var widthOffSet = 500 - ((400/236)*adjustedScrollPosition);
+
     var projectsCssClass = this.state.currPage === 'projects' ? "navbar-link navbar-link-current-page" : "navbar-link";
     var resumeCssClass = this.state.currPage === 'resume' ? "navbar-link navbar-link-current-page" : "navbar-link";
     var contactCssClass = this.state.currPage === 'contact' ? "navbar-link navbar-link-current-page" : "navbar-link";

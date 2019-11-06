@@ -17,29 +17,32 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollPosition: 0,
+      adjustedScrollPosition: 0,
+      realScrollPosition: 0,
     };
   }
 
   componentDidMount(){
     document.addEventListener("scroll", (e) => {
-      var vertScrollPosition = window.pageYOffset;
-      if(vertScrollPosition > 236){
-        vertScrollPosition = 236;
-      }
-      this.setState({ scrollPosition: vertScrollPosition })
+      var realScrollPosition = window.pageYOffset;
+      var adjustedScrollPosition = realScrollPosition > 236 ? 236 : realScrollPosition;
+      this.setState({
+        adjustedScrollPosition: adjustedScrollPosition,
+      })
     })
   }
 
   render() {
-    const mainMarginLeft = 470 - ((400/236)*this.state.scrollPosition);
-    
+    const adjustedScrollPosition = this.state.adjustedScrollPosition;
+
+    const mainMarginLeft = 470 - ((400/236)*adjustedScrollPosition);
+
     return (
       <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <Router>
-          <Welcome />
-          <NavBar />
+          <Welcome adjustedScrollPosition={this.state.adjustedScrollPosition} />
+          <NavBar adjustedScrollPosition={this.state.adjustedScrollPosition} />
           <header className="App-header">
             <div id="main-display-container"
               style={{
