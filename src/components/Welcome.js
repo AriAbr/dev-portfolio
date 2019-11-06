@@ -13,7 +13,6 @@ class Welcome extends Component {
   render() {
     const adjustedScrollPosition = this.props.adjustedScrollPosition;
 
-    var welcomeMessageMarginTop = 54 - adjustedScrollPosition;
     var welcomeMessageHeight = 300 - adjustedScrollPosition;
     var welcomeMessageLeftMargin = 480 - (1.7*adjustedScrollPosition);
     var welcomeMessageVertPadding = 27 - ((27/204)*adjustedScrollPosition);

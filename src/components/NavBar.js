@@ -5,7 +5,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currPage: "projects",
+      currPage: null,
     };
   }
 
@@ -15,6 +15,12 @@ class NavBar extends Component {
     }
   }
 
+  componentDidMount(){
+    var currentURL = window.location.href;
+    var currPage = currentURL.split("/")[3] || "";
+    this.setState({ currPage });
+  }
+
   render() {
     const adjustedScrollPosition = this.props.adjustedScrollPosition;
 
@@ -22,9 +28,9 @@ class NavBar extends Component {
     var left = 480 - ((400/236)*adjustedScrollPosition);
     var widthOffSet = 500 - ((400/236)*adjustedScrollPosition);
 
-    var projectsCssClass = this.state.currPage === 'projects' ? "navbar-link navbar-link-current-page" : "navbar-link";
-    var resumeCssClass = this.state.currPage === 'resume' ? "navbar-link navbar-link-current-page" : "navbar-link";
-    var contactCssClass = this.state.currPage === 'contact' ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var projectsCssClass = this.state.currPage === "" ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var resumeCssClass = this.state.currPage === "resume" ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var contactCssClass = this.state.currPage === "contact" ? "navbar-link navbar-link-current-page" : "navbar-link";
 
     return (
       <div id="navbar-div"
@@ -34,7 +40,7 @@ class NavBar extends Component {
           width:`calc(100% - ${widthOffSet}px)`
         }}
       >
-          <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("projects")}}>Projects</Link>
+          <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>
           <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
           <Link to={`/contact`} className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
       </div>
