@@ -1,7 +1,7 @@
 #contact-form{
-  margin: auto;
   white-space: nowrap;
   width: 800px;
+  max-width: 80vw;
 }
 
 .email-submit{
@@ -72,11 +72,11 @@
   transition: .25s;
 }
 
-.invalid-email-input{
+.invalid-email-input:focus{
   border: 5px solid #ff7c7c;
 }
 
-.valid-email-input{
+.valid-email-input:focus{
   border: 5px solid #80c680;
 }
 
@@ -91,6 +91,7 @@
   margin: 10px;
   margin-bottom: 5px;
   font-size: 20px;
+  white-space: normal;
 }
 
 .name-email-div{
@@ -126,6 +127,7 @@
 
 .email-overlay{
   width: 800px;
+  max-width: 80vw;
   margin: auto;
   z-index: 0;
 }

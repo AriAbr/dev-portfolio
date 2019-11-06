@@ -15,9 +15,10 @@ class Projects extends Component {
         <div className="main-display-content">
 
 
-          <div className="text-first-project project-display">
+          <div className="project-display">
             <div className="project-info">
               <h2 className="project-title">Spotifake</h2>
+              <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
               <p className="project-description">Spotifake description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-spotifake.herokuapp.com/" className="project-link">
@@ -29,15 +30,14 @@ class Projects extends Component {
                 </a>
               </div>
             </div>
-            <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
           </div>
 
           <hr className="project-break"/>
 
-          <div className="picture-first-project project-display">
-            <img src="/slaq-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
+          <div className="project-display">
             <div className="project-info">
               <h2 className="project-title">Slaq</h2>
+              <img src="/slaq-screenshot.png" alt="slaq-screenshot" id="slaq-screenshot" className="project-preview" width="600px"/>
               <p className="project-description">Slaq description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-slaq.herokuapp.com/" className="project-link">
@@ -56,6 +56,7 @@ class Projects extends Component {
           <div className="text-first-project project-display">
             <div className="project-info">
               <h2 className="project-title">Tirred</h2>
+              <img src="/tirred-screenshot.png" alt="tirred-screenshot" id="tirred-screenshot" className="project-preview" width="600px"/>
               <p className="project-description">Tirred description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://tirred.herokuapp.com/" className="project-link">
@@ -67,7 +68,6 @@ class Projects extends Component {
                 </a>
               </div>
             </div>
-            <img src="/tirred-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
           </div>
 
 

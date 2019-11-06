@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     const mainMarginLeft = 470 - ((400/236)*this.state.scrollPosition);
-
+    
     return (
       <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />

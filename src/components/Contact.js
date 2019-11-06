@@ -140,7 +140,7 @@ class Contact extends Component {
               />
             </div>
             <div id="contact-email-div" className="name-email-div">
-              <label for="emailAddress" className="contact-input-label">Email <small>(must be valid)</small></label>
+              <label for="emailAddress" className="contact-input-label">Email Address <small>(must be valid)</small></label>
               <input
                 type="text"
                 value={this.state.emailAddress}

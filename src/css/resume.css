@@ -3,6 +3,8 @@
   -webkit-box-shadow: 0px 0px 18px -4px black;
   box-shadow:         0px 0px 18px -4px black;
   margin: auto;
+  max-width: 80vw;
+  height: auto !important;
 }
 
 .react-pdf__Page__annotations.annotationLayer{
@@ -11,4 +13,8 @@
 
 #resume-placeholder{
   height: 10px;
+}
+
+#resume-pdf-page{
+  max-width: 90vw;
 }

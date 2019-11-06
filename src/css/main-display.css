@@ -19,7 +19,7 @@
   width: calc(100% - 500px);
   white-space: nowrap;
   font-size: 25px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .navbar-link{
