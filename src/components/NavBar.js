@@ -29,7 +29,10 @@ class NavBar extends Component {
   }
   render() {
     const scrollPosition = this.state.scrollPosition
-    const top = scrollPosition + 70;
+    var top = 306 - this.state.realScrollPosition;
+    if(top < 70){
+      top = 70;
+    }
     var left = 480 - ((400/236)*this.state.realScrollPosition);
     if (left < 80) {
       left = 80;
