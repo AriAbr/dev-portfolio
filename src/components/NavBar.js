@@ -6,6 +6,8 @@ class NavBar extends Component {
     super(props);
     this.state = {
       currPage: null,
+      top: null,
+      left: null,
     };
   }
 
@@ -15,18 +17,48 @@ class NavBar extends Component {
     }
   }
 
+  getLeft(){
+    const headshot = document.getElementById("headshot");
+    const headshotLeftNum = parseInt(headshot.style.left.slice(0,headshot.style.left.length-2));
+    const headshotBorderWidthNum = parseInt(headshot.style.borderWidth.slice(0,headshot.style.borderWidth.length-2));
+    var left = headshotLeftNum*2 + headshotBorderWidthNum*2 + headshot.offsetWidth;
+    if(left < 85 ) {
+      left = 85;
+    }
+    return left;
+  }
+
   componentDidMount(){
     var currentURL = window.location.href;
     var currPage = currentURL.split("/")[3] || "";
-    this.setState({ currPage });
+    var mainHeaderTop = document.getElementById("main-header").offsetHeight;
+
+    this.setState({
+      currPage: currPage,
+      top: mainHeaderTop,
+      left: this.getLeft(),
+    });
+  }
+
+  componentDidUpdate(){
+    var mainHeaderTop = document.getElementById("main-header").offsetHeight;
+
+    if (mainHeaderTop !== this.state.top) {
+      this.setState({
+        top: mainHeaderTop,
+      })
+    }
+    if (this.getLeft() !== this.state.left) {
+      this.setState({
+        left: this.getLeft(),
+      })
+    }
   }
 
   render() {
     const adjustedScrollPosition = this.props.adjustedScrollPosition;
 
-    var top = 306 - adjustedScrollPosition;
-    var left = 480 - ((400/236)*adjustedScrollPosition);
-    var widthOffSet = 500 - ((400/236)*adjustedScrollPosition);
+    var widthOffSet = 360 - ((235/236)*adjustedScrollPosition);
 
     var projectsCssClass = this.state.currPage === "" ? "navbar-link navbar-link-current-page" : "navbar-link";
     var resumeCssClass = this.state.currPage === "resume" ? "navbar-link navbar-link-current-page" : "navbar-link";
@@ -35,9 +67,9 @@ class NavBar extends Component {
     return (
       <div id="navbar-div"
         style={{
-          top: `${top}px`,
-          left: `${left}px`,
-          width:`calc(100% - ${widthOffSet}px)`
+          top: `${this.state.top}px`,
+          right: `25px`,
+          width:`calc(100vw - ${widthOffSet}px)`
         }}
       >
           <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>

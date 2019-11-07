@@ -8,8 +8,8 @@
   display: inline-block;
   width: calc(50% - 40px);
   transition: .25s;
-  border: 5px solid white;
-  color: white;
+  border: 5px solid cornsilk;
+  color: cornsilk;
   text-decoration: none;
   padding: 5px;
   background-color: transparent;
@@ -18,13 +18,14 @@
 }
 
 .email-submit:hover{
-  border: 5px solid #4040d0;
-  color: #4040d0;
+  border: 5px solid black;
+  color: black;
+  cursor: pointer;
 }
 
 .email-submit:focus{
-  border: 5px solid #4040d0;
-  color: #4040d0;
+  border: 5px solid black;
+  color: black;
   outline: 0;
 }
 

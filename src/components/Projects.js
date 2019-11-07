@@ -19,7 +19,9 @@ class Projects extends Component {
             <div className="project-info">
               <h2 className="project-title">Spotifake</h2>
               <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
-              <p className="project-description">Spotifake description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
+              <p className="project-description">
+                Spotifake is a simple, lightweight JavaScript music player. It is a frontend-only site built on <b>React.js</b> that can serve as a starting point for a more robust music streaming application.
+              </p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-spotifake.herokuapp.com/" className="project-link">
                   Spotifake  <i className="material-icons">open_in_new</i>
@@ -57,7 +59,7 @@ class Projects extends Component {
             <div className="project-info">
               <h2 className="project-title">Tirred</h2>
               <img src="/tirred-screenshot.png" alt="tirred-screenshot" id="tirred-screenshot" className="project-preview" width="600px"/>
-              <p className="project-description">Tirred description wiil go here. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
+              <p className="project-description">Tirred is a Reddit-inspired, sleep-themed discussion board. In this unit, we saw Batsheva approach David as he neared the end of his life in order to inform him that his son, Adoniyahu, was already acting as if he were the king. In pasuk 21, Batsheva warns.</p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://tirred.herokuapp.com/" className="project-link">
                   Tirred  <i className="material-icons">open_in_new</i>

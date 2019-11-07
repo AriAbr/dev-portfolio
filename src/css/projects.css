@@ -28,7 +28,8 @@
 .project-preview{
   display: block;
   margin: auto;
-  max-width: 100%;
+  width: 700px;
+  max-width: calc(100% - 40px);
   -moz-box-shadow:    0px 0px 38px 0px black;
   -webkit-box-shadow: 0px 0px 38px 0px black;
   box-shadow:         0px 0px 38px 0px black;
@@ -46,15 +47,15 @@
   width: 200px;
   max-width: calc(50% - 40px);
   transition: .25s;
-  border: 5px solid white;
-  color: white;
+  border: 5px solid cornsilk;
+  color: cornsilk;
   text-decoration: none;
   padding: 5px;
 }
 
 .project-link:hover{
-  border: 5px solid #4040d0;
-  color: #4040d0;
+  border: 5px solid black;
+  color: black;
 }
 
 .project-link-buffer{
@@ -65,5 +66,5 @@
 .project-break{
   width: 80%;
   margin-top: 30px;
-  border: .5px solid gray;
+  border: .5px solid cornsilk;
 }

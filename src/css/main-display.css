@@ -1,5 +1,6 @@
 #main-display-container{
   width: 500px;
+  color: cornsilk;
 }
 
 .main-display{
@@ -39,7 +40,9 @@
 }
 
 .navbar-link:hover{
-  background-color:  #4040d0;
+  background-color: lightgrey;
+  color: black;
+  font-weight: 600;
 }
 
 .main-display-scrolling-buffer{

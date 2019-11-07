@@ -3,7 +3,8 @@
   -webkit-box-shadow: 0px 0px 18px -4px black;
   box-shadow:         0px 0px 18px -4px black;
   margin: auto;
-  max-width: 80vw;
+  width: 1000px;
+  max-width: calc(100% - 40px);
   height: auto !important;
 }
 
