@@ -67,9 +67,8 @@ class NavBar extends Component {
     return (
       <div id="navbar-div"
         style={{
-          top: `${this.state.top}px`,
+          top: `${this.state.top - 50}px`,
           right: `25px`,
-          width:`calc(100vw - ${widthOffSet}px)`
         }}
       >
           <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>
