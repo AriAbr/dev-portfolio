@@ -8,6 +8,7 @@ class NavBar extends Component {
     this.state = {
       top: null,
       left: null,
+      menuOpen: false,
     };
   }
 
@@ -20,6 +21,22 @@ class NavBar extends Component {
       left = 85;
     }
     return left;
+  }
+
+  updateCurrPage(page){
+    this.setState({
+      menuOpen: false
+    }, () => {
+      this.props.updateCurrPage(page);
+    })
+  }
+
+  handleMenuStateChange(state){
+    this.setState({menuOpen: state.isOpen})
+  }
+
+  toggleMenu () {
+    this.setState(state => ({menuOpen: !state.menuOpen}))
   }
 
   componentDidMount(){
@@ -65,7 +82,7 @@ class NavBar extends Component {
                   <Link to={`/contact`} className={contactCssClass} onClick={() => {this.props.updateCurrPage("Contact")}}>Contact</Link>
               </div>
     } else {
-      currentNavBar = <Menu right
+      currentNavBar = <Menu right isOpen={ this.state.menuOpen } onStateChange={(state) => this.handleMenuStateChange(state)}
                 burgerButtonClassName={ "bm-burger-button" }
                 burgerBarClassName={ "bm-burger-bars" }
                 crossButtonClassName={ "bm-cross-button" }
@@ -75,9 +92,9 @@ class NavBar extends Component {
                 itemListClassName={ "bm-item-list" }
                 overlayClassName={ ".bm-overlay" }
               >
-                <Link to={`/`} className="bm-item" onClick={() => {this.props.updateCurrPage("Projects")}}>Projects</Link>
-                <Link to={`/resume`} className="bm-item" onClick={() => {this.props.updateCurrPage("Resume")}}>Resume</Link>
-                <Link to={`/contact`} className="bm-item" onClick={() => {this.props.updateCurrPage("Contact")}}>Contact</Link>
+                <Link to={`/`} className="bm-item" onClick={() => {this.updateCurrPage("Projects")}}>Projects</Link>
+                <Link to={`/resume`} className="bm-item" onClick={() => {this.updateCurrPage("Resume")}}>Resume</Link>
+                <Link to={`/contact`} className="bm-item" onClick={() => {this.updateCurrPage("Contact")}}>Contact</Link>
               </Menu>
     }
 

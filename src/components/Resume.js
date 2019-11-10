@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
-import { saveAs } from 'file-saver';
 
 class Resume extends Component {
   constructor(props) {

@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   extUpdateCurrPage(page){
-    var lastPage = this.state.page;
     if(page !== this.state.currPage){
       if(this.state.adjustedInnerWidth === 960){
         window.scrollTo({
