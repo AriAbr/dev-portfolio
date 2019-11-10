@@ -31,9 +31,11 @@ class Welcome extends Component {
     var mainHeaderMessageElem = document.getElementById("main-header-message");
     var mainHeaderMessageHeight = mainHeaderMessageElem.offsetHeight;
     var mainHeaderMessageVertPadding = mainHeaderMessageElem.style.paddingTop;
+    if(!mainHeaderMessageVertPadding){
+      mainHeaderMessageVertPadding = "0px"
+    }
     var mainHeaderMessageVertPaddingNum = parseInt(mainHeaderMessageVertPadding.slice(0,mainHeaderMessageVertPadding.length-2));
     var mainHeaderMessageTotalHeight = mainHeaderMessageHeight + mainHeaderMessageVertPaddingNum*2;
-
     return mainHeaderMessageTotalHeight;
   }
 
@@ -56,10 +58,10 @@ class Welcome extends Component {
 
   componentDidUpdate(){
     const headshotData = this.getHeadshotData()
-    var mainHeaderMessageTotalHeight = null;
+    var mainHeaderMessageTotalHeight = 250;
     if (document.getElementById("main-header-message")) {
       mainHeaderMessageTotalHeight = this.getMainHeaderMessageTotalHeight();
-      if(mainHeaderMessageTotalHeight !== null && mainHeaderMessageTotalHeight!== this.state.mainHeaderMessageTotalHeight){
+      if(mainHeaderMessageTotalHeight !== null && mainHeaderMessageTotalHeight !== this.state.mainHeaderMessageTotalHeight){
         this.setState({ mainHeaderMessageTotalHeight: mainHeaderMessageTotalHeight })
       }
     }

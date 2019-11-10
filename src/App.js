@@ -22,7 +22,7 @@ class App extends Component {
       realScrollPosition: 0,
       mainHeaderHeight: null,
       mainMarginLeft: null,
-      adjustedInnerWidth: null, //0, 960
+      adjustedInnerWidth: 960, //0, 960
       currPage: "Projects",
     };
   }
@@ -67,6 +67,7 @@ class App extends Component {
   }
 
   setAdjustedInnerWidth(innerWidth){
+    var oldInnerWidth = this.state.adjustedInnerWidth;
     var adjustedInnerWidth = innerWidth;
     if (adjustedInnerWidth >= 960) {
       adjustedInnerWidth = 960;
@@ -76,7 +77,22 @@ class App extends Component {
       adjustedInnerWidth = 0;
     }
     if (adjustedInnerWidth !== this.state.adjustedInnerWidth){
-      this.setState({ adjustedInnerWidth: adjustedInnerWidth });
+      this.setState({ adjustedInnerWidth: adjustedInnerWidth }, () => {
+        //prevent scroll jumping after screen resize
+        if(this.state.adjustedScrollPosition === 236){
+          var oldScrollPosition = null;
+          var newScrollPosition = null;
+          if (adjustedInnerWidth === 625 && oldInnerWidth === 960) {
+            oldScrollPosition = window.pageYOffset;
+            newScrollPosition = oldScrollPosition - 236;
+            window.scrollTo(0, newScrollPosition);
+          } else if (adjustedInnerWidth === 960) {
+            oldScrollPosition = window.pageYOffset;
+            newScrollPosition = oldScrollPosition + 236;
+            window.scrollTo(0, newScrollPosition);
+          }
+        }
+      });
     }
   }
 
