@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
 
 class Welcome extends Component {
   constructor(props) {
@@ -40,20 +39,30 @@ class Welcome extends Component {
 
   componentDidMount(){
     const headshotData = this.getHeadshotData()
-    const mainHeaderMessageTotalHeight = this.getMainHeaderMessageTotalHeight()
+    var mainHeaderMessageTotalHeight = null;
+    if (document.getElementById("main-header-message")) {
+      mainHeaderMessageTotalHeight = this.getMainHeaderMessageTotalHeight();
+      this.setState({
+        mainHeaderMessageTotalHeight: mainHeaderMessageTotalHeight,
+      })
+    }
 
     this.setState({
       headshotWidth: headshotData.width,
       headshotBorderWidth: headshotData.borderWidth,
       headshotLeft: headshotData.left,
-      mainHeaderMessageTotalHeight: mainHeaderMessageTotalHeight,
     })
   }
 
   componentDidUpdate(){
     const headshotData = this.getHeadshotData()
-    const mainHeaderMessageTotalHeight = this.getMainHeaderMessageTotalHeight()
-
+    var mainHeaderMessageTotalHeight = null;
+    if (document.getElementById("main-header-message")) {
+      mainHeaderMessageTotalHeight = this.getMainHeaderMessageTotalHeight();
+      if(mainHeaderMessageTotalHeight !== null && mainHeaderMessageTotalHeight!== this.state.mainHeaderMessageTotalHeight){
+        this.setState({ mainHeaderMessageTotalHeight: mainHeaderMessageTotalHeight })
+      }
+    }
     if(headshotData.width !== this.state.headshotWidth){
       this.setState({ headshotWidth: headshotData.width })
     }
@@ -63,9 +72,7 @@ class Welcome extends Component {
     if(headshotData.left !== this.state.headshotLeft){
       this.setState({ headshotLeft: headshotData.left })
     }
-    if(mainHeaderMessageTotalHeight !== this.state.mainHeaderMessageTotalHeight){
-      this.setState({ mainHeaderMessageTotalHeight: mainHeaderMessageTotalHeight })
-    }
+
   }
 
   render() {
@@ -85,7 +92,7 @@ class Welcome extends Component {
     var mainHeaderHeight = 250 - (adjustedScrollPosition*(190/236));
 
     var welcomeContent = <></>
-    if (!this.state.isCondensed) {
+    if (this.props.adjustedInnerWidth >= 960) {
       welcomeContent = <div className="welcome-navbar-parent">
         <img src="/headshot.jpg" alt="headshot" id="headshot"
           style={{
@@ -141,14 +148,38 @@ class Welcome extends Component {
             </div>
           </div>
         </div>
-    } else if (this.state.isCondensed) {
+    } else if (this.props.adjustedInnerWidth < 960) {
       welcomeContent = <div className="welcome-navbar-parent">
-          <div id="condensed-welcome-div" >CONDENSED WELCOME GOES HERE</div>
-          <NavBar currPage='contact' top={adjustedScrollPosition}/>
+        <img src="/headshot.jpg" alt="headshot" id="headshot"
+          style={{
+            borderWidth: `2px`,
+            left: `18px`,
+            top: `18px`,
+            width: `50px`,
+            zIndex: "1",
+          }}
+        />
+          <div
+            id="main-header"
+            style={{
+              height: `60px`,
+            }}
+          >
+            <div id="condensed-title"
+              style={{
+                opacity: `1`,
+              }}
+            >
+              Ari Abramowitz, Fullstack Web Developer
+            </div>
+
+
+          </div>
         </div>
     }
+
     return (
-        <div id="welcome-content">
+        <div id="welcome-content"  >
           {welcomeContent}
         </div>
     )

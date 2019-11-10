@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu'
 
 class NavBar extends Component {
   constructor(props) {
@@ -56,24 +57,43 @@ class NavBar extends Component {
   }
 
   render() {
-    const adjustedScrollPosition = this.props.adjustedScrollPosition;
-
-    var widthOffSet = 360 - ((235/236)*adjustedScrollPosition);
-
     var projectsCssClass = this.state.currPage === "" ? "navbar-link navbar-link-current-page" : "navbar-link";
     var resumeCssClass = this.state.currPage === "resume" ? "navbar-link navbar-link-current-page" : "navbar-link";
     var contactCssClass = this.state.currPage === "contact" ? "navbar-link navbar-link-current-page" : "navbar-link";
 
+    var currentNavBar = <></>
+
+    if(this.props.adjustedInnerWidth >= 960) {
+      currentNavBar = <div id="navbar-div"
+                style={{
+                  top: `${this.state.top - 50}px`,
+                  right: `25px`,
+                }}
+              >
+                  <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>
+                  <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
+                  <Link to={`/contact`} className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
+              </div>
+    } else {
+      currentNavBar = <Menu right
+                burgerButtonClassName={ "bm-burger-button" }
+                burgerBarClassName={ "bm-burger-bars" }
+                crossButtonClassName={ "bm-cross-button" }
+                crossClassName={ "bm-cross" }
+                menuClassName={ "bm-menu" }
+                morphShapeClassName={ "bm-morph-shape" }
+                itemListClassName={ "bm-item-list" }
+                overlayClassName={ ".bm-overlay" }
+              >
+                <Link to={`/`} className="bm-item">Projects</Link>
+                <Link to={`/resume`} className="bm-item">Resume</Link>
+                <Link to={`/contact`} className="bm-item">Contact</Link>
+              </Menu>
+    }
+
     return (
-      <div id="navbar-div"
-        style={{
-          top: `${this.state.top - 50}px`,
-          right: `25px`,
-        }}
-      >
-          <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>
-          <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
-          <Link to={`/contact`} className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
+      <div>
+        {currentNavBar}
       </div>
     );
   }
