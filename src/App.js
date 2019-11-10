@@ -91,6 +91,8 @@ class App extends Component {
             newScrollPosition = oldScrollPosition + 236;
             window.scrollTo(0, newScrollPosition);
           }
+        } else if (this.state.adjustedScrollPosition < 236 && adjustedInnerWidth === 960){
+          window.scrollTo(0, 0);
         }
       });
     }
