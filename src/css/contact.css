@@ -8,8 +8,8 @@
   display: inline-block;
   width: calc(50% - 40px);
   transition: .25s;
-  border: 5px solid cornsilk;
-  color: cornsilk;
+  border: 5px solid white;
+  color: white;
   text-decoration: none;
   padding: 5px;
   background-color: transparent;

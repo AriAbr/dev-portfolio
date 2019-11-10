@@ -72,7 +72,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .bm-item:hover {
-  color: black;
+  /* color: black; */
+  background-color: #066f6f;
 }
 
 .bm-item:focus{

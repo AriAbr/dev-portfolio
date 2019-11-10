@@ -1,6 +1,10 @@
 #main-display-container{
   width: 500px;
-  color: cornsilk;
+  color: white;
+}
+
+.page-header{
+  text-align: left;
 }
 
 .main-display{
@@ -31,14 +35,16 @@
   transition: .05s;
   text-decoration: none;
   width: 40px;
+  transition: .1s;
 }
 
 .navbar-link-current-page{
-  border-bottom: 2px solid lightgrey;
+  background-color: #066f6f;
+
 }
 
 .navbar-link:hover{
-  border-bottom: 2px solid lightgrey;
+  background-color: #066f6f;
 }
 
 .main-display-scrolling-buffer{

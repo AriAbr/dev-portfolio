@@ -25,7 +25,9 @@ class Resume extends Component {
     return (
       <div id="resume-div" className="main-display">
         <div className="main-display-content">
-          <p id="resume-placeholder"></p>
+          <h1 className="page-header">
+            Resume
+          </h1>
           <div id="resume-pdf-div">
           <Document
             file="/resume.pdf"

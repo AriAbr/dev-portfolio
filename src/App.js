@@ -23,7 +23,14 @@ class App extends Component {
       mainHeaderHeight: null,
       mainMarginLeft: null,
       adjustedInnerWidth: null, //0, 960
+      currPage: "Projects",
     };
+  }
+
+  extUpdateCurrPage(page){
+    if(page !== this.state.currPage){
+      this.setState({ currPage: page });
+    }
   }
 
   getMainMarginLeft(){
@@ -53,6 +60,20 @@ class App extends Component {
   }
 
   componentDidMount(){
+    var currentURL = window.location.href;
+    var currPage = currentURL.split("/")[3] || "";
+    if (currPage === "") {
+      currPage = "Projects";
+    } else if (currPage === "resume") {
+      currPage = "Resume";
+    } else if (currPage === "contact") {
+      currPage = "Contact";
+    }
+
+    this.setState({
+      currPage: currPage,
+    });
+
     this.setAdjustedInnerWidth(window.innerWidth);
     window.addEventListener("resize", (e) => {
       this.setAdjustedInnerWidth(window.innerWidth);
@@ -82,9 +103,9 @@ class App extends Component {
   render() {
     const adjustedScrollPosition = this.state.adjustedScrollPosition;
 
-    var mainContainerMarginTop = 20 + (adjustedScrollPosition*(55/236));
+    var mainContainerMarginTop = (adjustedScrollPosition*(50/236)) - 40;
     if(this.state.adjustedInnerWidth < 960){
-      mainContainerMarginTop = -190;
+      mainContainerMarginTop = -230;
     }
     const mainMarginLeft = this.state.mainMarginLeft;
 
@@ -100,6 +121,8 @@ class App extends Component {
             adjustedScrollPosition={this.state.adjustedScrollPosition}
             adjustedInnerWidth={this.state.adjustedInnerWidth}
             getMainMarginLeft={() => {this.getMainMarginLeft()}}
+            updateCurrPage={(page) => {this.extUpdateCurrPage(page)}}
+            currPage={this.state.currPage}
           />
           <header className="App-header">
             <div id="main-display-container"

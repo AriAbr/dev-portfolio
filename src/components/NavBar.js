@@ -6,16 +6,9 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currPage: null,
       top: null,
       left: null,
     };
-  }
-
-  updateCurrPage(page){
-    if(page !== this.state.currPage){
-      this.setState({ currPage: page });
-    }
   }
 
   getLeft(){
@@ -30,12 +23,9 @@ class NavBar extends Component {
   }
 
   componentDidMount(){
-    var currentURL = window.location.href;
-    var currPage = currentURL.split("/")[3] || "";
     var mainHeaderTop = document.getElementById("main-header").offsetHeight;
 
     this.setState({
-      currPage: currPage,
       top: mainHeaderTop,
       left: this.getLeft(),
     });
@@ -57,9 +47,9 @@ class NavBar extends Component {
   }
 
   render() {
-    var projectsCssClass = this.state.currPage === "" ? "navbar-link navbar-link-current-page" : "navbar-link";
-    var resumeCssClass = this.state.currPage === "resume" ? "navbar-link navbar-link-current-page" : "navbar-link";
-    var contactCssClass = this.state.currPage === "contact" ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var projectsCssClass = this.props.currPage === "Projects" ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var resumeCssClass = this.props.currPage === "Resume" ? "navbar-link navbar-link-current-page" : "navbar-link";
+    var contactCssClass = this.props.currPage === "Contact" ? "navbar-link navbar-link-current-page" : "navbar-link";
 
     var currentNavBar = <></>
 
@@ -70,9 +60,9 @@ class NavBar extends Component {
                   right: `25px`,
                 }}
               >
-                  <Link to={`/`} className={projectsCssClass} onClick={() => {this.updateCurrPage("")}}>Projects</Link>
-                  <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.updateCurrPage("resume")}}>Resume</Link>
-                  <Link to={`/contact`} className={contactCssClass} onClick={() => {this.updateCurrPage("contact")}}>Contact</Link>
+                  <Link to={`/`} className={projectsCssClass} onClick={() => {this.props.updateCurrPage("Projects")}}>Projects</Link>
+                  <Link to={`/resume`} className={resumeCssClass} onClick={() => {this.props.updateCurrPage("Resume")}}>Resume</Link>
+                  <Link to={`/contact`} className={contactCssClass} onClick={() => {this.props.updateCurrPage("Contact")}}>Contact</Link>
               </div>
     } else {
       currentNavBar = <Menu right
@@ -85,9 +75,9 @@ class NavBar extends Component {
                 itemListClassName={ "bm-item-list" }
                 overlayClassName={ ".bm-overlay" }
               >
-                <Link to={`/`} className="bm-item">Projects</Link>
-                <Link to={`/resume`} className="bm-item">Resume</Link>
-                <Link to={`/contact`} className="bm-item">Contact</Link>
+                <Link to={`/`} className="bm-item" onClick={() => {this.props.updateCurrPage("Projects")}}>Projects</Link>
+                <Link to={`/resume`} className="bm-item" onClick={() => {this.props.updateCurrPage("Resume")}}>Resume</Link>
+                <Link to={`/contact`} className="bm-item" onClick={() => {this.props.updateCurrPage("Contact")}}>Contact</Link>
               </Menu>
     }
 
