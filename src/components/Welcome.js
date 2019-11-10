@@ -91,6 +91,11 @@ class Welcome extends Component {
     var headshotBorderWidth = 10 - (adjustedScrollPosition*(8/236));
     var mainHeaderHeight = 250 - (adjustedScrollPosition*(190/236));
 
+    var condensedTitleText = "Ari Abramowitz, Fullstack Web Developer";
+    if(this.props.adjustedInnerWidth < 625){
+      condensedTitleText = "Ari Abramowitz"
+    }
+
     var welcomeContent = <></>
     if (this.props.adjustedInnerWidth >= 960) {
       welcomeContent = <div className="welcome-navbar-parent">
@@ -170,7 +175,7 @@ class Welcome extends Component {
                 opacity: `1`,
               }}
             >
-              Ari Abramowitz, Fullstack Web Developer
+              {condensedTitleText}
             </div>
 
 

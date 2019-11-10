@@ -40,8 +40,10 @@ class App extends Component {
 
   setAdjustedInnerWidth(innerWidth){
     var adjustedInnerWidth = innerWidth;
-    if (adjustedInnerWidth > 960) {
+    if (adjustedInnerWidth >= 960) {
       adjustedInnerWidth = 960;
+    } else if (adjustedInnerWidth >= 625 && adjustedInnerWidth < 960) {
+      adjustedInnerWidth = 625;
     } else {
       adjustedInnerWidth = 0;
     }
