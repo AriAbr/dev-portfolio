@@ -35,7 +35,10 @@ class Contact extends Component {
 
     var validator = require("email-validator");
     if(validator.validate(this.state.emailAddress)){
-      this.setState({ emailStatus: "sending" });
+      this.setState({
+        emailStatus: "sending",
+        emailOverlayMessage: "Sending..."
+      });
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
       this.sendFeedback(templateId, {
         message_html: this.state.emailBody,
@@ -87,12 +90,6 @@ class Contact extends Component {
       emailBody: "",
       senderName: "",
       emailStatus: "writing"
-    }, () => {
-      setTimeout(() => { // delaying this so overlay can fade out first
-        this.setState({
-          emailOverlayMessage: "Sending..."
-        })
-      }, 1500)
     })
   }
 
@@ -100,12 +97,6 @@ class Contact extends Component {
     e.preventDefault();
     this.setState({
       emailStatus: "writing"
-    }, () => {
-      setTimeout(() => { // delaying this so overlay can fade out first
-        this.setState({
-          emailOverlayMessage: "Sending..."
-        })
-      }, 1500)
     })
   }
 
