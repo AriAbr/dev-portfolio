@@ -28,8 +28,30 @@ class App extends Component {
   }
 
   extUpdateCurrPage(page){
+    var lastPage = this.state.page;
     if(page !== this.state.currPage){
-      this.setState({ currPage: page });
+      if(this.state.adjustedInnerWidth === 960){
+        window.scrollTo({
+          top: 236,
+          left: 0,
+          behavior: 'smooth'
+        });
+      } else if (this.state.adjustedInnerWidth < 960){
+        window.scrollTo(0, 0);
+      }
+      this.setState({ currPage: page }, () => {
+        if(this.state.page === "Contact" || page !== "Contact"){
+          if(this.state.adjustedInnerWidth === 960){
+            window.scrollTo({
+              top: 236,
+              left: 0,
+              behavior: 'smooth'
+            });
+          } else if (this.state.adjustedInnerWidth < 960){
+            window.scrollTo(0, 0);
+          }
+        }
+      });
     }
   }
 
@@ -97,20 +119,6 @@ class App extends Component {
       this.setState({
         mainMarginLeft: this.getMainMarginLeft(),
       })
-    }
-    if(prevState.currPage !== this.state.currPage){
-      if(this.state.adjustedInnerWidth === 960){
-        if(prevState.adjustedScrollPosition < 236){
-          //leave the scroll position where it is
-        } else if (prevState.adjustedScrollPosition === 236) {
-          //go to the top of the page if past expanded header
-          window.scrollTo(0, 0);
-          window.scrollBy(0, 236);
-        }
-      } else if (this.state.adjustedInnerWidth < 960){
-        //always go to top
-        window.scrollTo(0, 0);
-      }
     }
   }
 
