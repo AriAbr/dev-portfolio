@@ -92,11 +92,25 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps, prevState, snapshot){
     if(this.getMainMarginLeft() !== this.state.mainMarginLeft){
       this.setState({
         mainMarginLeft: this.getMainMarginLeft(),
       })
+    }
+    if(prevState.currPage !== this.state.currPage){
+      if(this.state.adjustedInnerWidth === 960){
+        if(prevState.adjustedScrollPosition < 236){
+          //leave the scroll position where it is
+        } else if (prevState.adjustedScrollPosition === 236) {
+          //go to the top of the page if past expanded header
+          window.scrollTo(0, 0);
+          window.scrollBy(0, 236);
+        }
+      } else if (this.state.adjustedInnerWidth < 960){
+        //always go to top
+        window.scrollTo(0, 0);
+      }
     }
   }
 

@@ -38,13 +38,13 @@ class Resume extends Component {
                 <i className="material-icons">get_app</i> Download
               </button>
             </div>
-          <Document
-            file="/resume.pdf"
-            onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
-            className="resume-pdf"
-          >
-            <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000} />
-          </Document>
+            <Document
+              file="/resume.pdf"
+              onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
+              className="resume-pdf"
+            >
+              <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000} />
+            </Document>
           </div>
         </div>
       </div>

@@ -8,6 +8,10 @@
   height: auto !important;
 }
 
+.react-pdf__message{
+  height: 1000px;
+}
+
 .react-pdf__Page__textContent{
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
