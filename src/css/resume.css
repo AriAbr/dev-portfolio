@@ -8,6 +8,16 @@
   height: auto !important;
 }
 
+.react-pdf__Page__textContent{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+
 .react-pdf__Page__annotations.annotationLayer{
   display: none;
 }
@@ -20,6 +30,7 @@
   display: inline-block;
   width: 200px;
   max-width: calc(50% - 40px);
+  min-width: 135px;
   transition: .25s;
   border: 5px solid white;
   color: white;
@@ -27,7 +38,8 @@
   padding: 5px;
   background-color: transparent;
   font-family: inherit;
-  font-size: 25.264px;
+  font-size: calc(10px + 2vmin);
+  z-index: 2;
 }
 
 .resume-download-button:hover{
