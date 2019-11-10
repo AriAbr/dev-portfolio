@@ -12,10 +12,34 @@
   display: none;
 }
 
-#resume-placeholder{
-  height: 10px;
-}
-
 #resume-pdf-page{
   max-width: 90vw;
+}
+
+.resume-download-button{
+  display: inline-block;
+  width: 200px;
+  max-width: calc(50% - 40px);
+  transition: .25s;
+  border: 5px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 25.264px;
+}
+
+.resume-download-button:hover{
+  border: 5px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+#resume-download-button-container{
+  margin: auto;
+  margin-bottom: 20px;
+  width: 1000px;
+  max-width: calc(100% - 40px);
+  text-align: left;
 }

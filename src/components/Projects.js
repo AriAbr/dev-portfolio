@@ -16,7 +16,7 @@ class Projects extends Component {
           <h1 className="page-header">
             Projects
           </h1>
-          
+
           <div className="project-display">
             <div className="project-info">
               <h2 className="project-title">Spotifake</h2>
