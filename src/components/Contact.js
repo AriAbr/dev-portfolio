@@ -110,10 +110,14 @@ class Contact extends Component {
 
     return (
       <div id="contact-div" className="main-display">
-        <div className="main-display-content">
-          <h1 className="page-header">
-            Contact
-          </h1>
+        <h1 className="page-header">
+          Contact
+        </h1>
+        <div className="main-display-content"
+          style={{
+            marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
+          }}
+        >
           <LoadingOverlay
             active={["sending", "sent", "failed", "invalidAddress"].includes(this.state.emailStatus) }
             spinner={["sending"].includes(this.state.emailStatus)}

@@ -25,24 +25,33 @@ class Resume extends Component {
   render() {
     const { pageNumber } = this.state;
 
+
+
     return (
       <div id="resume-div" className="main-display">
-        <div className="main-display-content">
-          <h1 className="page-header">
-            Resume
-          </h1>
+        <h1 className="page-header">
+          Resume
+        </h1>
+        <div className="main-display-content"
+          style={{
+            marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
+          }}
+        >
+
+
           <div id="resume-pdf-div">
-            <div id="resume-download-button-container">
-              <button onClick={() => {this.downloadResume()}} className="resume-download-button">
-                <i className="material-icons">get_app</i> Download
-              </button>
-            </div>
+
             <Document
               file="/resume.pdf"
               onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
               className="resume-pdf"
             >
-              <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000} />
+                <div id="resume-download-button-container">
+                  <button onClick={() => {this.downloadResume()}} className="resume-download-button">
+                    <i className="material-icons">get_app</i> Download
+                  </button>
+                </div>
+              <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000}/>
             </Document>
           </div>
         </div>

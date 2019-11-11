@@ -21,15 +21,16 @@
   display: none;
 }
 
+#resume-pdf-div{
+  max-width: calc(100vw - 20px);
+}
+
 #resume-pdf-page{
   max-width: 90vw;
 }
 
 .resume-download-button{
   display: inline-block;
-  width: 200px;
-  max-width: calc(50% - 40px);
-  min-width: 135px;
   transition: .25s;
   border: 5px solid white;
   color: white;
@@ -48,9 +49,10 @@
 }
 
 #resume-download-button-container{
-  margin: auto;
-  margin-bottom: 20px;
+  display: inline-block;
   width: 1000px;
   max-width: calc(100% - 40px);
-  text-align: left;
+  text-align: right;
+  margin: auto;
+  margin-bottom: 20px;
 }

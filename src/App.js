@@ -148,6 +148,11 @@ class App extends Component {
     }
     const mainMarginLeft = this.state.mainMarginLeft;
 
+    var mainDisplayContentMarginLeft = -(this.state.adjustedScrollPosition*100/263);
+    if (this.state.adjustedInnerWidth < 960){
+      mainDisplayContentMarginLeft = -90;
+    }
+
     return (
       <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -171,9 +176,24 @@ class App extends Component {
                 width: `100%`,
               }}
             >
-              <Route exact path="/" component={Projects} />
-              <Route path="/resume" component={Resume} />
-              <Route path="/contact" component={Contact} />
+              <Route
+                exact path="/"
+                render={(props) => <Projects {...props}
+                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                />}
+              />
+              <Route
+                path="/resume"
+                render={(props) => <Resume {...props}
+                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                />}
+              />
+              <Route
+                path="/contact"
+                render={(props) => <Contact {...props}
+                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                />}
+              />
               <div className="main-display-scrolling-buffer" />
             </div>
           </header>
