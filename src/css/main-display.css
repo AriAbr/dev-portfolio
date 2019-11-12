@@ -1,6 +1,7 @@
 #main-display-container{
   width: 500px;
   color: white;
+  min-height: calc(100vh + 236px);
 }
 
 .page-header{
