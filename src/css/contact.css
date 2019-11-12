@@ -1,7 +1,8 @@
 #contact-form{
   white-space: nowrap;
-  width: 800px;
-  max-width: 80vw;
+  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 .email-submit{
@@ -70,6 +71,7 @@
   font-size: 20px;
   font-weight: 600;
   font-family: inherit;
+  max-width: calc(100% - 40px);
   transition: .25s;
 }
 
@@ -82,7 +84,6 @@
 }
 
 .contact-input:focus{
-  /* border: 5px solid #4040d0; */
   outline: 0;
 }
 
@@ -96,7 +97,7 @@
 }
 
 .name-email-div{
-  width: calc(50% - 20px);
+  width: calc(50%);
 }
 
 .name-email-input{
@@ -108,14 +109,14 @@
 }
 
 .message-input{
-  width: calc(100% - 80px);
+  width: calc(100%);
 }
 
 .message-input-label{
   margin: auto;
   margin-top: 10px;
   margin-bottom: 5px;
-  width: calc(100% - 60px);
+  width: calc(100% - 20px);
 }
 
 .test-textarea{
@@ -127,7 +128,7 @@
 }
 
 .email-overlay{
-  width: 800px;
+  width: 900px;
   max-width: 80vw;
   margin: auto;
   z-index: 0;

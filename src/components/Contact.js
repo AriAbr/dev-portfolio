@@ -110,22 +110,26 @@ class Contact extends Component {
 
     return (
       <div id="contact-div" className="main-display">
-        <h1 className="page-header">
-          Contact
-        </h1>
+
         <div className="main-display-content"
           style={{
             marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
           }}
         >
+          <h1 className="page-header">
+            Contact
+          </h1>
+
           <LoadingOverlay
             active={["sending", "sent", "failed", "invalidAddress"].includes(this.state.emailStatus) }
             spinner={["sending"].includes(this.state.emailStatus)}
             text={this.state.emailOverlayMessage}
             className="email-overlay"
           >
+            <hr className="break-before-content" />
 
           <form onSubmit={(e) => {this.submitEmail(e)}} id="contact-form">
+
             <div autocomplete="new-name" id="contact-name-div" className="name-email-div">
               <label for="senderName" className="contact-input-label">Name</label>
               <input
@@ -138,7 +142,7 @@ class Contact extends Component {
               />
             </div>
             <div id="contact-email-div" className="name-email-div">
-              <label for="emailAddress" className="contact-input-label">Your Email Address <small>(must be valid)</small></label>
+              <label for="emailAddress" className="contact-input-label">Email Address <small>(must be valid)</small></label>
               <input
                 type="text"
                 value={this.state.emailAddress}

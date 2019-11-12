@@ -28,16 +28,16 @@ class Resume extends Component {
 
 
     return (
-      <div id="resume-div" className="main-display">
-        <h1 className="page-header">
-          Resume
-        </h1>
+      <div id="projects-div" className="main-display">
+
         <div className="main-display-content"
           style={{
             marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
           }}
         >
-
+          <h1 className="page-header">
+            Resume
+          </h1>
 
           <div id="resume-pdf-div">
 
@@ -54,6 +54,7 @@ class Resume extends Component {
               <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000}/>
             </Document>
           </div>
+
         </div>
       </div>
     );

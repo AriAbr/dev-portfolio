@@ -16,7 +16,6 @@
   display: none;
 }
 
-
 .react-pdf__Page__annotations.annotationLayer{
   display: none;
 }
@@ -54,7 +53,7 @@
   display: inline-block;
   width: 1000px;
   max-width: calc(100% - 40px);
-  text-align: right;
+  text-align: left;
   margin: auto;
   margin-bottom: 20px;
 }
