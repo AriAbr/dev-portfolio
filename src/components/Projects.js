@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Projects extends Component {
   constructor(props) {
@@ -28,7 +29,9 @@ class Projects extends Component {
             <div className="project-display">
               <div className="project-info">
                 <h2 className="project-title">Spotifake</h2>
-                <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
+                <a target="_blank" rel="noopener noreferrer" href="http://ariabr-spotifake.herokuapp.com/">
+                  <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
+                </a>
                 <p className="project-description">
                   Spotifake is a simple, lightweight music player built on <b>React.js</b>.
                   It is a frontend-only site that can serve as a starting point for a more robust music streaming application.
@@ -50,7 +53,9 @@ class Projects extends Component {
             <div className="project-display">
               <div className="project-info">
                 <h2 className="project-title">Slaq</h2>
-                <img src="/slaq-screenshot.png" alt="slaq-screenshot" id="slaq-screenshot" className="project-preview" width="600px"/>
+                <a target="_blank" rel="noopener noreferrer" href="http://ariabr-slaq.herokuapp.com/">
+                  <img src="/slaq-screenshot.png" alt="slaq-screenshot" id="slaq-screenshot" className="project-preview" width="600px"/>
+                </a>
                 <p className="project-description">
                   Slaq is a real-time chat application, loosely inspired by the popular messaging app, Slack.
                   It is built with with <b>React.js</b> on the frontend and <b>Firebase</b> on the backend.
@@ -73,7 +78,9 @@ class Projects extends Component {
             <div className="text-first-project project-display">
               <div className="project-info">
                 <h2 className="project-title">Tirred</h2>
-                <img src="/tirred-screenshot.png" alt="tirred-screenshot" id="tirred-screenshot" className="project-preview" width="600px"/>
+                <a target="_blank" rel="noopener noreferrer" href="http://tirred.herokuapp.com/">
+                  <img src="/tirred-screenshot.png" alt="tirred-screenshot" id="tirred-screenshot" className="project-preview" width="600px"/>
+                </a>
                 <p className="project-description">
                   Tirred is a Reddit-inspired, sleep-themed discussion board where you can post, comment, and vote on posts.
                   The backend of the application is built on <b>Node.js</b>, <b>Express.js</b>, <b>Sequelize</b>, and <b>PostgreSQL</b>.
@@ -97,7 +104,15 @@ class Projects extends Component {
             <div className="text-first-project project-display">
               <div className="project-info">
                 <h2 className="project-title">Portfolio</h2>
-                <img src="/portfollio-screenshot.png" alt="portfolio-screenshot" id="portfolio-screenshot" className="project-preview" width="600px"/>
+                <Link to={`/`} onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                  });
+                }}>
+                  <img src="/portfollio-screenshot.png" alt="portfolio-screenshot" id="portfolio-screenshot" className="project-preview" width="600px"/>
+                </Link>
                 <p className="project-description">
                   I built this site myself using <b>React.js</b>. You can check out the code here:
                 </p>
