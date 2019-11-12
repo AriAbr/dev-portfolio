@@ -27,29 +27,23 @@ class App extends Component {
     };
   }
 
+  scrollToTop(){
+    if(this.state.adjustedInnerWidth === 960){
+      window.scrollTo({
+        top: 236,
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else if (this.state.adjustedInnerWidth < 960){
+      window.scrollTo(0, 0);
+    }
+  }
+
   extUpdateCurrPage(page){
+    this.scrollToTop();
     if(page !== this.state.currPage){
-      if(this.state.adjustedInnerWidth === 960){
-        window.scrollTo({
-          top: 236,
-          left: 0,
-          behavior: 'smooth'
-        });
-      } else if (this.state.adjustedInnerWidth < 960){
-        window.scrollTo(0, 0);
-      }
       this.setState({ currPage: page }, () => {
-        if(this.state.page === "Contact" || page !== "Contact"){
-          if(this.state.adjustedInnerWidth === 960){
-            window.scrollTo({
-              top: 236,
-              left: 0,
-              behavior: 'smooth'
-            });
-          } else if (this.state.adjustedInnerWidth < 960){
-            window.scrollTo(0, 0);
-          }
-        }
+        this.scrollToTop();
       });
     }
   }
