@@ -12,6 +12,7 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Welcome from './components/Welcome';
 import NavBar from './components/NavBar';
+import ScrollToTop from './components/ScrollToTop';
 
 
 class App extends Component {
@@ -24,28 +25,15 @@ class App extends Component {
       mainMarginLeft: null,
       adjustedInnerWidth: 960, //0, 960
       currPage: "Projects",
+      isScrolling: false,
     };
   }
 
-  scrollToTop(){
-    if(this.state.adjustedInnerWidth === 960){
-      window.scrollTo({
-        top: 236,
-        left: 0,
-        behavior: 'smooth'
-      });
-    } else if (this.state.adjustedInnerWidth < 960){
-      window.scrollTo(0, 0);
-    }
-  }
-
   extUpdateCurrPage(page){
-    this.scrollToTop();
     if(page !== this.state.currPage){
-      this.setState({ currPage: page }, () => {
-        this.scrollToTop();
-      });
+      this.setState({ currPage: page });
     }
+    this.setState({isScrolling: true});
   }
 
   getMainMarginLeft(){
@@ -90,6 +78,10 @@ class App extends Component {
         }
       });
     }
+  }
+
+  updateIsScrolling(boolean){
+    this.setState({ isScrolling: boolean });
   }
 
   componentDidMount(){
@@ -151,46 +143,51 @@ class App extends Component {
       <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <Router>
-          <Welcome
-            adjustedScrollPosition={this.state.adjustedScrollPosition}
+          <ScrollToTop
             adjustedInnerWidth={this.state.adjustedInnerWidth}
+            isScrolling={this.state.isScrolling}
+            updateIsScrolling={(boolean) => {this.updateIsScrolling(boolean)}}
           />
-          <NavBar
-            adjustedScrollPosition={this.state.adjustedScrollPosition}
-            adjustedInnerWidth={this.state.adjustedInnerWidth}
-            getMainMarginLeft={() => {this.getMainMarginLeft()}}
-            updateCurrPage={(page) => {this.extUpdateCurrPage(page)}}
-            currPage={this.state.currPage}
-          />
-          <header className="App-header">
-            <div id="main-display-container"
-              style={{
-                marginLeft: `${mainMarginLeft}px`,
-                marginTop: `${mainContainerMarginTop}px`,
-                width: `100%`,
-              }}
-            >
-              <Route
-                exact path="/"
-                render={(props) => <Projects {...props}
-                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
-                />}
-              />
-              <Route
-                path="/resume"
-                render={(props) => <Resume {...props}
-                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
-                />}
-              />
-              <Route
-                path="/contact"
-                render={(props) => <Contact {...props}
-                  mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
-                />}
-              />
-              <div className="main-display-scrolling-buffer" />
-            </div>
-          </header>
+            <Welcome
+              adjustedScrollPosition={this.state.adjustedScrollPosition}
+              adjustedInnerWidth={this.state.adjustedInnerWidth}
+            />
+            <NavBar
+              adjustedScrollPosition={this.state.adjustedScrollPosition}
+              adjustedInnerWidth={this.state.adjustedInnerWidth}
+              getMainMarginLeft={() => {this.getMainMarginLeft()}}
+              updateCurrPage={(page) => {this.extUpdateCurrPage(page)}}
+              currPage={this.state.currPage}
+            />
+            <header className="App-header">
+              <div id="main-display-container"
+                style={{
+                  marginLeft: `${mainMarginLeft}px`,
+                  marginTop: `${mainContainerMarginTop}px`,
+                  width: `100%`,
+                }}
+              >
+                <Route
+                  exact path="/"
+                  render={(props) => <Projects {...props}
+                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                  />}
+                />
+                <Route
+                  path="/resume"
+                  render={(props) => <Resume {...props}
+                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                  />}
+                />
+                <Route
+                  path="/contact"
+                  render={(props) => <Contact {...props}
+                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
+                  />}
+                />
+                <div className="main-display-scrolling-buffer" />
+              </div>
+            </header>
         </Router>
       </div>
     );
