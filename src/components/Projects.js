@@ -20,13 +20,13 @@ class Projects extends Component {
             marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
           }}
         >
-        
+
           <div className="project-display">
             <div className="project-info">
               <h2 className="project-title">Spotifake</h2>
               <img src="/spotifake-screenshot.png" alt="spotifake-screenshot" id="spotifake-screenshot" className="project-preview" width="600px"/>
               <p className="project-description">
-                Spotifake is a simple, lightweight JavaScript music player. It is a frontend-only site built on <b>React.js</b> that can serve as a starting point for a more robust music streaming application.
+                Spotifake is a simple, lightweight music player built on <b>React.js</b>. It is a frontend-only site that can serve as a starting point for a more robust music streaming application.
               </p>
               <div className="project-links">
                 <a target="_blank" rel="noopener noreferrer" href="http://ariabr-spotifake.herokuapp.com/" className="project-link">

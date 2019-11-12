@@ -23,6 +23,8 @@
 
 #resume-pdf-div{
   max-width: calc(100vw - 20px);
+  display: block;
+  margin: auto;
 }
 
 #resume-pdf-page{
