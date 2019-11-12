@@ -92,9 +92,9 @@ class NavBar extends Component {
                 itemListClassName={ "bm-item-list" }
                 overlayClassName={ ".bm-overlay" }
               >
-                <Link to={`/`} className="bm-item" onClick={() => {this.props.updateCurrPage("Projects")}}>Projects</Link>
-                <Link to={`/resume`} className="bm-item" onClick={() => {this.props.updateCurrPage("Resume")}}>Resume</Link>
-                <Link to={`/contact`} className="bm-item" onClick={() => {this.props.updateCurrPage("Contact")}}>Contact</Link>
+                <Link to={`/`} className="bm-item" onClick={() => {this.updateCurrPage("Projects")}}>Projects</Link>
+                <Link to={`/resume`} className="bm-item" onClick={() => {this.updateCurrPage("Resume")}}>Resume</Link>
+                <Link to={`/contact`} className="bm-item" onClick={() => {this.updateCurrPage("Contact")}}>Contact</Link>
               </Menu>
     }
 
