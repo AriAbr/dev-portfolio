@@ -114,7 +114,7 @@ class Projects extends Component {
                   <img src="/portfollio-screenshot.png" alt="portfolio-screenshot" id="portfolio-screenshot" className="project-preview" width="600px"/>
                 </Link>
                 <p className="project-description">
-                  I built this site myself using <b>React.js</b>. You can check out the code here:
+                  I built this site using <b>React.js</b>. You can check out the code here:
                 </p>
                 <div className="project-links">
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/AriAbr/dev-portfolio" className="project-link">

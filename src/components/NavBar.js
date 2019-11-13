@@ -73,7 +73,7 @@ class NavBar extends Component {
     if(this.props.adjustedInnerWidth >= 960) {
       currentNavBar = <div id="navbar-div"
                 style={{
-                  top: `${this.state.top - 50}px`,
+                  top: `${this.state.top - 48.5}px`,
                   right: `25px`,
                 }}
               >

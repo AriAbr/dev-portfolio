@@ -51,6 +51,7 @@
   position: fixed;
   top: 14px;
   left: 100px;
+  z-index: 1;
 }
 
 #headshot{

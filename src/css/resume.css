@@ -37,6 +37,7 @@
   color: white;
   text-decoration: none;
   padding: 5px;
+  padding-left: 10px;
   background-color: transparent;
   font-family: inherit;
   font-size: calc(10px + 2vmin);

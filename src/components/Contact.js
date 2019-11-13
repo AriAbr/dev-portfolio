@@ -165,7 +165,9 @@ class Contact extends Component {
                 />
 
             </div>
-            <button type="submit" onClick={(e) => this.submitEmail(e)} className="email-submit" style={{marginTop: "16px", width: "250px"}}>Submit</button>
+            <button type="submit" onClick={(e) => this.submitEmail(e)} className="email-submit" style={{marginTop: "16px", width: "250px"}}>
+              Send
+            </button>
           </form>
           <div className="sending-overlay-buffer" />
           </LoadingOverlay>

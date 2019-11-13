@@ -48,7 +48,7 @@ class Resume extends Component {
             >
                 <div id="resume-download-button-container">
                   <button onClick={() => {this.downloadResume()}} className="resume-download-button">
-                    <i className="material-icons">get_app</i> Download
+                    <i class="far fa-arrow-alt-circle-down"></i> Download 
                   </button>
                 </div>
               <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000}/>

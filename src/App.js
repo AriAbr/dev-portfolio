@@ -141,7 +141,6 @@ class App extends Component {
 
     return (
       <div className="App">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <Router>
           <ScrollToTop
             adjustedInnerWidth={this.state.adjustedInnerWidth}
