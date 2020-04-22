@@ -40,11 +40,13 @@ class Contact extends Component {
         emailOverlayMessage: "Sending..."
       });
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
-      this.sendFeedback(templateId, {
+      var emailData = {
         message_html: this.state.emailBody,
-        from_name: this.state.name,
+        to_name: "Ari",
+        from_name: this.state.senderName,
         reply_to: this.state.emailAddress
-      })
+      }
+      this.sendFeedback(templateId, emailData)
     } else {
       this.setState({
         emailStatus: "invalidAddress",
