@@ -93,7 +93,7 @@ class Welcome extends Component {
     var headshotBorderWidth = 10 - (adjustedScrollPosition*(8/236));
     var mainHeaderHeight = 250 - (adjustedScrollPosition*(190/236));
 
-    var condensedTitleText = "Ari Abramowitz, Fullstack Web Developer";
+    var condensedTitleText = "Ari Abramowitz, Full Stack Web Developer";
     if(this.props.adjustedInnerWidth < 625){
       condensedTitleText = "Ari Abramowitz"
     }
@@ -121,7 +121,7 @@ class Welcome extends Component {
                 opacity: `${condensedTitleOpacity}`,
               }}
             >
-              Ari Abramowitz, Fullstack Web Developer
+              Ari Abramowitz, Full Stack Web Developer
             </div>
 
             <div id="main-header-message"
@@ -145,7 +145,7 @@ class Welcome extends Component {
               <div
                 id="main-header-developer"
               >
-                I'm a fullstack web developer
+                I'm a full stack web developer
               </div>
               <div
                 id="main-header-please-scroll"
