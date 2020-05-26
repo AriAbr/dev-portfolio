@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 
 class Resume extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Resume extends Component {
               file="/resume.pdf"
               onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
               className="resume-pdf"
+              externalLinkTarget="_blank"
             >
                 <div id="resume-download-button-container">
                   <button onClick={() => {this.downloadResume()}} className="resume-download-button">
