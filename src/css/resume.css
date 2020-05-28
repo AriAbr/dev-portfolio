@@ -1,65 +1,15 @@
-.react-pdf__Page{
+.pdf-iframe{
+  max-width: 100%;
+  width: 1000px !important;
+  height: 1310px !important;
+  max-height: calc(((100vw - 40px) * 11 / 8.5) + 15px);
   -moz-box-shadow:    0px 0px 18px -4px black;
   -webkit-box-shadow: 0px 0px 18px -4px black;
   box-shadow:         0px 0px 18px -4px black;
-  margin: auto;
-  width: 1000px;
-  max-width: calc(100% - 40px);
-  height: auto !important;
 }
-
-.react-pdf__Page__canvas{
-  max-width: 100%;
-  width: 1000px !important;
-  height: auto !important;
-}
-
-@media (max-width: 959px) {
-  .react-pdf__Page__textContent span{
-    display: none;
-  }
-
-  .react-pdf__Page__annotations{
-    display: none !important;
-  }
-}
-
 
 #resume-pdf-div{
-  max-width: calc(100vw - 20px);
+  max-width: calc(100vw - 40px);
   display: block;
   margin: auto;
-}
-
-#resume-pdf-page{
-  max-width: 90vw;
-}
-
-.resume-download-button{
-  display: inline-block;
-  transition: .25s;
-  border: 5px solid white;
-  color: white;
-  text-decoration: none;
-  padding: 5px;
-  padding-left: 10px;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: calc(10px + 2vmin);
-  z-index: 2;
-}
-
-.resume-download-button:hover{
-  border: 5px solid black;
-  color: black;
-  cursor: pointer;
-}
-
-#resume-download-button-container{
-  display: inline-block;
-  width: 1000px;
-  max-width: calc(100% - 40px);
-  text-align: left;
-  margin: auto;
-  margin-bottom: 20px;
 }

@@ -1,32 +1,14 @@
 import React, { Component } from 'react';
-import { Document, Page } from 'react-pdf/dist/entry.webpack';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
 
 class Resume extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numPages: null,
-      pageNumber: 1,
+
     };
   }
 
-  onDocumentLoadSuccess (document) {
-    const { numPages } = document;
-    this.setState({
-      numPages,
-    });
-  };
-
-  downloadResume(){
-    var FileSaver = require('file-saver');
-    FileSaver.saveAs("/resume.pdf", "Ari_Abramowitz_resume.pdf");
-  }
-
   render() {
-    const { pageNumber } = this.state;
-
-
 
     return (
       <div id="projects-div" className="main-display">
@@ -41,20 +23,15 @@ class Resume extends Component {
           </h1>
 
           <div id="resume-pdf-div">
-
-            <Document
-              file="/resume.pdf"
-              onLoadSuccess={(file) => {this.onDocumentLoadSuccess(file)}}
-              className="resume-pdf"
-              externalLinkTarget="_blank"
-            >
-                <div id="resume-download-button-container">
-                  <button onClick={() => {this.downloadResume()}} className="resume-download-button">
-                    <i class="far fa-arrow-alt-circle-down"></i> Download 
-                  </button>
-                </div>
-              <Page pageNumber={pageNumber} id="resume-pdf-page" width={1000}/>
-            </Document>
+            <iframe className="pdf-iframe"
+              src="/pdfjs-2.3.200-dist/web/viewer.html?file=%2Fresume.pdf"
+              width='100%'
+              height='auto'
+              frameBorder="0"
+              allowfullscreen
+              webkitallowfullscreen
+              externalLinkTarget="blank"
+            ></iframe>
           </div>
 
         </div>
