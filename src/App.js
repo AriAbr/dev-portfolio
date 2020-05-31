@@ -22,7 +22,6 @@ class App extends Component {
       adjustedScrollPosition: 0,
       realScrollPosition: 0,
       mainHeaderHeight: null,
-      mainMarginLeft: null,
       adjustedInnerWidth: 960, //0, 960
       currPage: "Projects",
       isScrolling: false,
@@ -34,18 +33,6 @@ class App extends Component {
       this.setState({ currPage: page });
     }
     this.setState({isScrolling: true});
-  }
-
-  getMainMarginLeft(){
-    const headshot = document.getElementById("headshot");
-    const headshotWidth = headshot.style.width;
-    const headshotBorderWidth = headshot.style.borderWidth;
-    const headshotLeft = headshot.style.left;
-    const headshotWidthNum = parseInt(headshotWidth.slice(0,headshotWidth.length-2));
-    const headshotBorderWidthNum = parseInt(headshotBorderWidth.slice(0,headshotBorderWidth.length-2));
-    const headshotLeftNum = parseInt(headshotLeft.slice(0,headshotLeft.length-2));
-    const mainMarginLeft = headshotLeftNum*2 + headshotBorderWidthNum*2 + headshotWidthNum;
-    return mainMarginLeft;
   }
 
   setAdjustedInnerWidth(innerWidth){
@@ -111,18 +98,6 @@ class App extends Component {
         adjustedScrollPosition: adjustedScrollPosition,
       })
     })
-
-    this.setState({
-      mainMarginLeft: this.getMainMarginLeft(),
-    })
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot){
-    if(this.getMainMarginLeft() !== this.state.mainMarginLeft){
-      this.setState({
-        mainMarginLeft: this.getMainMarginLeft(),
-      })
-    }
   }
 
   render() {
@@ -132,13 +107,7 @@ class App extends Component {
     if(this.state.adjustedInnerWidth < 960){
       mainContainerMarginTop = -230;
     }
-    const mainMarginLeft = this.state.mainMarginLeft;
-
-    var mainDisplayContentMarginLeft = -(this.state.adjustedScrollPosition*100/263);
-    if (this.state.adjustedInnerWidth < 960){
-      mainDisplayContentMarginLeft = -90;
-    }
-
+    
     return (
       <div className="App">
         <Router>
@@ -154,14 +123,12 @@ class App extends Component {
             <NavBar
               adjustedScrollPosition={this.state.adjustedScrollPosition}
               adjustedInnerWidth={this.state.adjustedInnerWidth}
-              getMainMarginLeft={() => {this.getMainMarginLeft()}}
               updateCurrPage={(page) => {this.extUpdateCurrPage(page)}}
               currPage={this.state.currPage}
             />
             <header className="App-header">
               <div id="main-display-container"
                 style={{
-                  marginLeft: `${mainMarginLeft}px`,
                   marginTop: `${mainContainerMarginTop}px`,
                   width: `100%`,
                 }}
@@ -169,19 +136,16 @@ class App extends Component {
                 <Route
                   exact path="/"
                   render={(props) => <Projects {...props}
-                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
                   />}
                 />
                 <Route
                   path="/resume"
                   render={(props) => <Resume {...props}
-                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
                   />}
                 />
                 <Route
                   path="/contact"
                   render={(props) => <Contact {...props}
-                    mainDisplayContentMarginLeft={mainDisplayContentMarginLeft}
                   />}
                 />
                 <div className="main-display-scrolling-buffer" />

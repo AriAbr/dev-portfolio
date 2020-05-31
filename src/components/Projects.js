@@ -14,11 +14,7 @@ class Projects extends Component {
     return (
       <div id="projects-div" className="main-display">
 
-        <div className="main-display-content"
-          style={{
-            marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
-          }}
-        >
+        <div className="main-display-content">
           <h1 className="page-header">
             Projects
           </h1>

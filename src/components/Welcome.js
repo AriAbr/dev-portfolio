@@ -80,17 +80,16 @@ class Welcome extends Component {
   render() {
     const adjustedScrollPosition = this.props.adjustedScrollPosition;
 
-    var welcomeMessageLeftMargin = this.state.headshotLeft*2 + this.state.headshotBorderWidth*2 + this.state.headshotWidth;
-
     var welcomeMessageVertPadding = 27 - ((27/204)*adjustedScrollPosition);
     var welcomeMessageOpacity = 1 - (adjustedScrollPosition/220);
 
     var condensedTitleOpacity = (adjustedScrollPosition/26) - (210/26);
 
-    var headshotWidth = 250 - (adjustedScrollPosition*(200/236));
+    var welcomeMessageLeftMargin = 280 - (adjustedScrollPosition*(190/236)); // range from 280 to 90
+    var headshotWidth = 200 - (adjustedScrollPosition*(150/236));
     var headshotLeft = 30 - (adjustedScrollPosition*(12/236));
     var headshotTop = headshotLeft;
-    var headshotBorderWidth = 10 - (adjustedScrollPosition*(8/236));
+    var headshotBorderWidth = 7 - (adjustedScrollPosition*(5/236));
     var mainHeaderHeight = 250 - (adjustedScrollPosition*(190/236));
 
     var condensedTitleText = "Ari Abramowitz, Full Stack Web Developer";

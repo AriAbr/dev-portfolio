@@ -13,11 +13,7 @@ class Resume extends Component {
     return (
       <div id="projects-div" className="main-display">
 
-        <div className="main-display-content"
-          style={{
-            marginLeft: `${this.props.mainDisplayContentMarginLeft}px`
-          }}
-        >
+        <div className="main-display-content">
           <h1 className="page-header">
             Resume
           </h1>
@@ -26,11 +22,11 @@ class Resume extends Component {
             <iframe className="pdf-iframe"
               src="/pdfjs-2.3.200-dist/web/viewer.html?file=%2FAri_Abramowitz_Resume.pdf"
               width='100%'
+              title="Ari Abramowitz Resume"
               height='auto'
               frameBorder="0"
               allowfullscreen
               webkitallowfullscreen
-              externalLinkTarget="blank"
             ></iframe>
           </div>
 
@@ -41,8 +37,3 @@ class Resume extends Component {
 }
 
 export default Resume
-
-/*
-
-
-*/
