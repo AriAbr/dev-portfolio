@@ -20,7 +20,7 @@ class Resume extends Component {
 
           <div id="resume-pdf-div">
             <iframe className="pdf-iframe"
-              src="/pdfjs-2.3.200-dist/web/viewer.html?file=%2FAri_Abramowitz_Resume.pdf"
+              src="/pdfjs-2.3.200-dist/web/viewer.html?file=/Ari_Abramowitz_Resume.pdf"
               width='100%'
               title="Ari Abramowitz Resume"
               height='auto'
