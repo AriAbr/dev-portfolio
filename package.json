@@ -13,6 +13,7 @@
     "react-ga": "^3.0.0",
     "react-loading-overlay": "^1.0.1",
     "react-pdf": "^4.1.0",
+    "react-public-ip": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },

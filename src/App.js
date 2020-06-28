@@ -15,9 +15,9 @@ import NavBar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 import ReactGA from 'react-ga';
 
-ReactGA.initialize('UA-156150951-1', {
-  siteSpeedSampleRate: 100
-});
+const publicIp = require("react-public-ip");
+
+ReactGA.initialize('UA-156150951-1');
 
 class App extends Component {
   constructor(props) {
@@ -75,8 +75,16 @@ class App extends Component {
     this.setState({ isScrolling: boolean });
   }
 
+  async recordPageView(){
+    const ipv6 = await publicIp.v6() || "";
+    if(ipv6 !== process.env.REACT_APP_IGNORE_IP){
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+  }
+
   componentDidMount(){
-    ReactGA.pageview("landing");
+    this.recordPageView();
+    
     var currentURL = window.location.href;
     var currPage = currentURL.split("/")[3] || "";
     if (currPage === "") {
