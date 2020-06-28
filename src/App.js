@@ -13,7 +13,9 @@ import Contact from './components/Contact';
 import Welcome from './components/Welcome';
 import NavBar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
+import ReactGA from 'react-ga';
 
+ReactGA.initialize('UA-156150951-1');
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +74,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    ReactGA.pageview("landing");
     var currentURL = window.location.href;
     var currPage = currentURL.split("/")[3] || "";
     if (currPage === "") {
@@ -96,8 +99,8 @@ class App extends Component {
       var adjustedScrollPosition = realScrollPosition > 236 ? 236 : realScrollPosition;
       this.setState({
         adjustedScrollPosition: adjustedScrollPosition,
-      })
-    })
+      });
+    });
   }
 
   render() {

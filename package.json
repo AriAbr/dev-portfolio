@@ -10,6 +10,7 @@
     "react": "^16.11.0",
     "react-burger-menu": "^2.6.11",
     "react-dom": "^16.11.0",
+    "react-ga": "^3.0.0",
     "react-loading-overlay": "^1.0.1",
     "react-pdf": "^4.1.0",
     "react-router-dom": "^5.1.2",
