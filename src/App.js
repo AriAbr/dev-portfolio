@@ -15,7 +15,9 @@ import NavBar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 import ReactGA from 'react-ga';
 
-ReactGA.initialize('UA-156150951-1');
+ReactGA.initialize('UA-156150951-1', {
+  siteSpeedSampleRate: 100
+});
 
 class App extends Component {
   constructor(props) {
