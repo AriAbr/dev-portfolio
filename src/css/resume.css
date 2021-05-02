@@ -1,8 +1,9 @@
 .pdf-iframe{
   max-width: 100%;
   width: 1000px !important;
-  height: 1310px !important;
-  max-height: calc(((100vw - 40px) * 11 / 8.5) + 15px);
+  height: 1420px !important;
+  /* 297 / 210 == page height / page width */
+  max-height: calc(((100vw - 40px) * 297 / 210) + 15px); 
   -moz-box-shadow:    0px 0px 18px -4px black;
   -webkit-box-shadow: 0px 0px 18px -4px black;
   box-shadow:         0px 0px 18px -4px black;
