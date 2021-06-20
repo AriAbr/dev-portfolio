@@ -18,7 +18,7 @@
     "react-scripts": "3.2.0"
   },
   "engines": {
-    "node": "10.15.3"
+    "node": "v16.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
