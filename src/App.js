@@ -27,7 +27,7 @@ class App extends Component {
       realScrollPosition: 0,
       mainHeaderHeight: null,
       adjustedInnerWidth: 960, //0, 960
-      currPage: "Projects",
+      currPage: "Resume",
       isScrolling: false,
     };
   }
@@ -88,9 +88,9 @@ class App extends Component {
     var currentURL = window.location.href;
     var currPage = currentURL.split("/")[3] || "";
     if (currPage === "") {
+        currPage = "Resume";
+    } else if (currPage === "projects") {
       currPage = "Projects";
-    } else if (currPage === "resume") {
-      currPage = "Resume";
     } else if (currPage === "contact") {
       currPage = "Contact";
     }
@@ -148,12 +148,12 @@ class App extends Component {
               >
                 <Route
                   exact path="/"
-                  render={(props) => <Projects {...props}
+                  render={(props) => <Resume {...props}
                   />}
                 />
                 <Route
-                  path="/resume"
-                  render={(props) => <Resume {...props}
+                  path="/projects"
+                  render={(props) => <Projects {...props}
                   />}
                 />
                 <Route
